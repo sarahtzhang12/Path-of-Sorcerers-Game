@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgmhwaifcsshp"]
+
+[ext_resource type="Script" path="res://Player.gd" id="1_04tci"]
+[ext_resource type="PackedScene" uid="uid://1mjdkolyk5sj" path="res://Sprite.tscn" id="2_cb5ty"]
+[ext_resource type="PackedScene" path="res://common/shadow.tscn" id="3_8sk5i"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iuwis"]
+radius = 20.025
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(428, 224)
+motion_mode = 1
+script = ExtResource("1_04tci")
+
+[node name="Sprite" parent="." instance=ExtResource("2_cb5ty")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 36)
+shape = SubResource("CircleShape2D_iuwis")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Shadow" parent="." instance=ExtResource("3_8sk5i")]
+position = Vector2(-1, 61)
