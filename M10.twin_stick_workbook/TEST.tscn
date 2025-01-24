@@ -1,10 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://cuiro57n1t0e6"]
+[gd_scene load_steps=4 format=3 uid="uid://cuiro57n1t0e6"]
 
 [ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="1_g6o4l"]
 [ext_resource type="PackedScene" uid="uid://cgmhwaifcsshp" path="res://Player.tscn" id="2_ovl1u"]
+[ext_resource type="PackedScene" uid="uid://b8plh6ki5fc3c" path="res://mob.tscn" id="3_lqoee"]
 
 [node name="Node2D" type="Node2D"]
 
 [node name="RoomA" parent="." instance=ExtResource("1_g6o4l")]
 
 [node name="Player" parent="." instance=ExtResource("2_ovl1u")]
+
+[node name="Mob" parent="." instance=ExtResource("3_lqoee")]
+position = Vector2(638, 454)
+
+[node name="Mob2" parent="." instance=ExtResource("3_lqoee")]
+position = Vector2(372, 842)
+
+[node name="Mob3" parent="." instance=ExtResource("3_lqoee")]
+position = Vector2(1182, 600)
