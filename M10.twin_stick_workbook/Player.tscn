@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cgmhwaifcsshp"]
+[gd_scene load_steps=11 format=3 uid="uid://cgmhwaifcsshp"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_04tci"]
 [ext_resource type="PackedScene" uid="uid://1mjdkolyk5sj" path="res://Sprite.tscn" id="2_cb5ty"]
@@ -6,9 +6,24 @@
 [ext_resource type="PackedScene" uid="uid://dlp0h8522lf3j" path="res://weapon.tscn" id="4_nydfd"]
 [ext_resource type="Script" path="res://weapon_pivot.gd" id="4_wp1qg"]
 [ext_resource type="Texture2D" uid="uid://dekkcmj408pvt" path="res://player/hand_fire.png" id="5_vc87r"]
+[ext_resource type="Theme" uid="uid://bva65aut51dnv" path="res://player/progress_bar_theme.tres" id="7_qlqp4"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iuwis"]
 radius = 20.025
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fw14n"]
+bg_color = Color(0, 0, 0, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_epy1n"]
+bg_color = Color(0.276872, 0.711678, 7.70092e-07, 1)
+corner_radius_top_left = 20
+corner_radius_top_right = 20
+corner_radius_bottom_right = 20
+corner_radius_bottom_left = 20
 
 [node name="Player" type="CharacterBody2D"]
 position = Vector2(428, 224)
@@ -44,3 +59,15 @@ texture = ExtResource("5_vc87r")
 position = Vector2(81.8626, 41.3342)
 rotation = 0.00066373
 texture = ExtResource("5_vc87r")
+
+[node name="HealthBar" type="ProgressBar" parent="."]
+unique_name_in_owner = true
+offset_left = -71.0
+offset_top = -94.0
+offset_right = 71.0
+offset_bottom = -67.0
+theme = ExtResource("7_qlqp4")
+theme_override_styles/background = SubResource("StyleBoxFlat_fw14n")
+theme_override_styles/fill = SubResource("StyleBoxFlat_epy1n")
+value = 50.0
+rounded = true

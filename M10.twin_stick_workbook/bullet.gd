@@ -14,7 +14,7 @@ func _physics_process(delta: float) -> void:
 	
 	_traveled_distance += distance
 	if _traveled_distance > max_range:
-		_destroy()
+		_destroy() 
 
 func _destroy():
 	queue_free()
