@@ -1,0 +1,103 @@
+[gd_scene load_steps=11 format=3 uid="uid://dunbcc7cjhipx"]
+
+[ext_resource type="Script" path="res://pickup.gd" id="1_mstbn"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="2_d4u8b"]
+[ext_resource type="Script" path="res://item_healing.gd" id="2_mdmdt"]
+[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="4_k0uib"]
+
+[sub_resource type="Resource" id="Resource_1j27m"]
+script = ExtResource("2_mdmdt")
+healing_amount = 1
+display_name = ""
+texture = ExtResource("2_d4u8b")
+sound_on_pickup = ExtResource("4_k0uib")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g01c2"]
+radius = 36.0139
+
+[sub_resource type="Animation" id="Animation_p0ej4"]
+resource_name = "idle"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 10), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_63586"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.12963, 1.03333)]
+}
+
+[sub_resource type="Animation" id="Animation_ttmyt"]
+resource_name = "destroy"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.03, 0.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1.12963, 1.03333), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mhnld"]
+_data = {
+"RESET": SubResource("Animation_63586"),
+"destroy": SubResource("Animation_ttmyt"),
+"idle": SubResource("Animation_p0ej4")
+}
+
+[node name="Pickup" type="Area2D"]
+script = ExtResource("1_mstbn")
+item = SubResource("Resource_1j27m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+scale = Vector2(1.12963, 1.03333)
+texture = ExtResource("2_d4u8b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_g01c2")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("4_k0uib")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_mhnld")
+}
