@@ -1,0 +1,120 @@
+[gd_scene load_steps=17 format=3 uid="uid://b007h5ahi2hfo"]
+
+[ext_resource type="Texture2D" uid="uid://dub7cda3qxho2" path="res://pickups/chest/chest_bottom.png" id="1_1tdmd"]
+[ext_resource type="Script" path="res://chest.gd" id="1_dt4ed"]
+[ext_resource type="Script" path="res://item.gd" id="2_a1myc"]
+[ext_resource type="Texture2D" uid="uid://bfj2ayjhou4bv" path="res://pickups/chest/chest_top.png" id="2_mhepj"]
+[ext_resource type="Script" path="res://item_healing.gd" id="3_g663f"]
+[ext_resource type="AudioStream" uid="uid://o3ra7o263286" path="res://pickups/pickup_health.wav" id="4_oayqr"]
+[ext_resource type="Texture2D" uid="uid://be8lmb157qflx" path="res://pickups/pickup_health.png" id="5_myd3b"]
+[ext_resource type="Texture2D" uid="uid://bafpwix362m4w" path="res://pickups/pickup_heart_pink.png" id="6_mx4ns"]
+[ext_resource type="Texture2D" uid="uid://ciw5x0nryxfqi" path="res://pickups/pickup_heart_darkpink.png" id="7_fkf64"]
+
+[sub_resource type="Resource" id="Resource_4dy5h"]
+script = ExtResource("3_g663f")
+healing_amount = 1
+display_name = ""
+texture = ExtResource("5_myd3b")
+sound_on_pickup = ExtResource("4_oayqr")
+
+[sub_resource type="Resource" id="Resource_ire7p"]
+script = ExtResource("3_g663f")
+healing_amount = 1
+display_name = ""
+texture = ExtResource("6_mx4ns")
+sound_on_pickup = ExtResource("4_oayqr")
+
+[sub_resource type="Resource" id="Resource_j3goq"]
+script = ExtResource("3_g663f")
+healing_amount = 1
+display_name = ""
+texture = ExtResource("7_fkf64")
+sound_on_pickup = ExtResource("4_oayqr")
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_a5ayw"]
+radius = 89.4707
+
+[sub_resource type="Animation" id="Animation_1y2qf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChestTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(3, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChestTop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.00379044]
+}
+
+[sub_resource type="Animation" id="Animation_qunl3"]
+resource_name = "open"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ChestTop:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(3, -9), Vector2(35, -9), Vector2(63, -3), Vector2(65, 14)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ChestTop:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.104769),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.00379044, 0.275762]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mmm8p"]
+_data = {
+"RESET": SubResource("Animation_1y2qf"),
+"open": SubResource("Animation_qunl3")
+}
+
+[node name="Chest" type="Area2D"]
+position = Vector2(626, 344)
+script = ExtResource("1_dt4ed")
+possible_items = Array[ExtResource("2_a1myc")]([SubResource("Resource_4dy5h"), SubResource("Resource_ire7p"), SubResource("Resource_j3goq")])
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_a5ayw")
+
+[node name="ChestBottom" type="Sprite2D" parent="."]
+position = Vector2(2.5, -6.5)
+texture = ExtResource("1_1tdmd")
+
+[node name="ChestTop" type="Sprite2D" parent="."]
+position = Vector2(3, -9)
+rotation = -0.00379044
+scale = Vector2(1, 0.966292)
+texture = ExtResource("2_mhepj")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_mmm8p")
+}
