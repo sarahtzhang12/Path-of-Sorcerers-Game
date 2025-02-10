@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=4 uid="uid://diw0kp1e3livt"]
+[gd_scene load_steps=8 format=4 uid="uid://diw0kp1e3livt"]
 
 [ext_resource type="Script" path="res://levels/rooms/room.gd" id="1_2c4qj"]
 [ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="2_0mfii"]
 [ext_resource type="PackedScene" uid="uid://ke0kmcp0efiv" path="res://levels/rooms/tilemap_layer_walls.tscn" id="3_5hsqq"]
 [ext_resource type="TileSet" uid="uid://cqb2wtrubw0n6" path="res://levels/rooms/tilesets/tileset_invisible_walls.tres" id="4_c2lc3"]
+[ext_resource type="PackedScene" uid="uid://b007h5ahi2hfo" path="res://chest.tscn" id="5_ae63p"]
+[ext_resource type="PackedScene" uid="uid://b8plh6ki5fc3c" path="res://mob.tscn" id="6_dgnc8"]
+[ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="7_6lysl"]
 
 [node name="RoomD" type="Node2D"]
 y_sort_enabled = true
@@ -33,3 +36,21 @@ unique_name_in_owner = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD//wgAAAAAAAAAAAD//wkAAAAAAAAAAAD//woAAAAAAAAAAAD//wsAAAAAAAAAAAAIAAsAAAAAAAAAAAAHAAsAAAABAAAAAAAGAAsAAAABAAAAAAAFAAsAAAABAAAAAAAEAAsAAAABAAAAAAADAAsAAAABAAAAAAACAAsAAAABAAAAAAABAAsAAAABAAAAAAAAAAsAAAABAAAAAAD//wcAAAAAAAAAAAD//wYAAAAAAAAAAAD//wUAAAAAAAAAAAD//wQAAAAAAAAAAAD//wMAAAAAAAAAAAD//wIAAAAAAAAAAAAAAAIAAAAAAAAAAAABAAIAAAAAAAAAAAABAAEAAAAAAAAAAAABAAAAAAAAAAAAAAABAP//AAAAAAAAAAACAP//AAAAAAAAAAADAP//AAAAAAAAAAAEAP//AAAAAAAAAAAFAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAJAP//AAAAAAAAAAAKAP//AAAAAAAAAAALAP//AAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAQAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAAIAAcAAAAAAAAAAAAIAAgAAAAAAAAAAAAIAAkAAAAAAAAAAAAIAAoAAAAAAAAAAAAIAAYAAAABAAAAAAAJAAYAAAABAAAAAAAKAAYAAAABAAAAAAA=")
 tile_set = ExtResource("4_c2lc3")
+
+[node name="Chest" parent="." instance=ExtResource("5_ae63p")]
+position = Vector2(1219.86, 124.398)
+
+[node name="Mob" parent="." instance=ExtResource("6_dgnc8")]
+position = Vector2(841.431, 496.965)
+
+[node name="Mob2" parent="." instance=ExtResource("6_dgnc8")]
+position = Vector2(510.922, 940.586)
+
+[node name="Pickup" parent="." instance=ExtResource("7_6lysl")]
+position = Vector2(192.918, 944.222)
+
+[node name="Pickup3" parent="." instance=ExtResource("7_6lysl")]
+position = Vector2(862.526, 1286.99)
+
+[node name="Pickup2" parent="." instance=ExtResource("7_6lysl")]
+position = Vector2(569.786, 186.653)

@@ -79,5 +79,6 @@ offset_bottom = -67.0
 theme = ExtResource("7_qlqp4")
 theme_override_styles/background = SubResource("StyleBoxFlat_fw14n")
 theme_override_styles/fill = SubResource("StyleBoxFlat_epy1n")
-value = 50.0
+value = 100.0
 rounded = true
+show_percentage = false

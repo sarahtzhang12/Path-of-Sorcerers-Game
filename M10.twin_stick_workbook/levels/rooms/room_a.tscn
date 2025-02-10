@@ -1,9 +1,16 @@
-[gd_scene load_steps=5 format=4 uid="uid://cu2rb5dl4ljte"]
+[gd_scene load_steps=10 format=4 uid="uid://cu2rb5dl4ljte"]
 
 [ext_resource type="Script" path="res://levels/rooms/room.gd" id="1_8d3jl"]
 [ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="1_hbbvy"]
 [ext_resource type="TileSet" uid="uid://cqb2wtrubw0n6" path="res://levels/rooms/tilesets/tileset_invisible_walls.tres" id="2_w4mpx"]
 [ext_resource type="PackedScene" uid="uid://ke0kmcp0efiv" path="res://levels/rooms/tilemap_layer_walls.tscn" id="3_sgyoc"]
+[ext_resource type="PackedScene" uid="uid://b8plh6ki5fc3c" path="res://mob.tscn" id="5_y6cs2"]
+[ext_resource type="Texture2D" uid="uid://dqsx4s3vbcjiv" path="res://levels/props/statue_gems.png" id="6_swi4x"]
+[ext_resource type="PackedScene" uid="uid://b007h5ahi2hfo" path="res://chest.tscn" id="7_eytxv"]
+[ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="8_wma4v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u27s4"]
+size = Vector2(116.998, 184.935)
 
 [node name="RoomA" type="Node2D"]
 y_sort_enabled = true
@@ -32,3 +39,31 @@ unique_name_in_owner = true
 use_parent_material = true
 tile_map_data = PackedByteArray("AAD//wQAAAAAAAAAAAD//wUAAAAAAAAAAAD//wYAAAAAAAAAAAD//wcAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAcAAAABAAAAAAAAAAgAAAAAAAAAAAAAAAkAAAAAAAAAAAABAAAAAAAAAAAAAAABAAMAAAABAAAAAAABAAQAAAAAAAAAAAABAAgAAAABAAAAAAABAAkAAAAAAAAAAAABAAoAAAAAAAAAAAACAAAAAAAAAAAAAAACAAkAAAABAAAAAAACAAoAAAAAAAAAAAADAAAAAAAAAAAAAAADAAkAAAABAAAAAAADAAoAAAAAAAAAAAAEAP//AAAAAAAAAAAEAAAAAAAAAAAAAAAEAAkAAAABAAAAAAAEAAoAAAAAAAAAAAAFAP//AAAAAAAAAAAGAP//AAAAAAAAAAAHAP//AAAAAAAAAAAIAP//AAAAAAAAAAAIAAkAAAABAAAAAAAIAAoAAAAAAAAAAAAJAP//AAAAAAAAAAAJAAAAAAAAAAAAAAAJAAkAAAABAAAAAAAJAAoAAAAAAAAAAAAKAAAAAAAAAAAAAAAKAAkAAAABAAAAAAAKAAoAAAAAAAAAAAALAAAAAAAAAAAAAAALAAEAAAAAAAAAAAALAAIAAAAAAAAAAAALAAMAAAAAAAAAAAALAAUAAAAAAAAAAAALAAYAAAAAAAAAAAALAAcAAAAAAAAAAAALAAgAAAAAAAAAAAALAAkAAAAAAAAAAAALAAoAAAAAAAAAAAAFAAkAAAABAAAAAAAFAAoAAAAAAAAAAAAHAAoAAAAAAAAAAAAHAAkAAAABAAAAAAA=")
 tile_set = ExtResource("2_w4mpx")
+
+[node name="Mob" parent="." instance=ExtResource("5_y6cs2")]
+position = Vector2(511.553, 390.587)
+
+[node name="Mob2" parent="." instance=ExtResource("5_y6cs2")]
+position = Vector2(834.134, 755.956)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(716.873, 110.822)
+texture = ExtResource("6_swi4x")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
+position = Vector2(-0.62384, 14.465)
+shape = SubResource("RectangleShape2D_u27s4")
+
+[node name="Chest" parent="." instance=ExtResource("7_eytxv")]
+position = Vector2(844.798, 176.968)
+
+[node name="Pickup" parent="." instance=ExtResource("8_wma4v")]
+position = Vector2(1117.28, 633.281)
+
+[node name="Pickup2" parent="." instance=ExtResource("8_wma4v")]
+position = Vector2(389.021, 854.446)
+
+[node name="Pickup3" parent="." instance=ExtResource("8_wma4v")]
+position = Vector2(295.696, 265.339)

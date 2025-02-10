@@ -1,0 +1,39 @@
+[gd_scene load_steps=10 format=4 uid="uid://2pjfgk015p7r"]
+
+[ext_resource type="Script" path="res://game.gd" id="1_4jo72"]
+[ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_7ju0x"]
+[ext_resource type="PackedScene" uid="uid://cu2rb5dl4ljte" path="res://levels/rooms/room_a.tscn" id="2_otb1u"]
+[ext_resource type="PackedScene" uid="uid://dgayuh42w4v6u" path="res://levels/rooms/room_b.tscn" id="3_ssbcq"]
+[ext_resource type="PackedScene" uid="uid://cq0mmphkbrvmm" path="res://levels/rooms/room_c.tscn" id="4_02xb8"]
+[ext_resource type="PackedScene" uid="uid://diw0kp1e3livt" path="res://levels/rooms/room_d.tscn" id="5_p0rc5"]
+[ext_resource type="PackedScene" uid="uid://c3fl3stluv0gn" path="res://levels/bridges.tscn" id="6_xfqg7"]
+[ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="7_jkxj2"]
+[ext_resource type="PackedScene" uid="uid://cgmhwaifcsshp" path="res://Player.tscn" id="8_3xwmu"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_4jo72")
+
+[node name="InvisibleWalls" parent="." instance=ExtResource("7_jkxj2")]
+unique_name_in_owner = true
+tile_map_data = PackedByteArray("AAAFAA4AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAMAAQAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAAOAAYAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAP//AAAAAAAAAAAWAP7/AAAAAAAAAAAWAP3/AAAAAAAAAAAWAPz/AAAAAAAAAAAWAPv/AAAAAAAAAAAYAPv/AAAAAAAAAAAYAPz/AAAAAAAAAAAYAP3/AAAAAAAAAAAYAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAaAP//AAAAAAAAAAAaAAAAAAAAAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("8_3xwmu")]
+position = Vector2(498, 2941)
+
+[node name="BackgroundBlueSky" parent="." instance=ExtResource("1_7ju0x")]
+
+[node name="RoomA" parent="." instance=ExtResource("2_otb1u")]
+
+[node name="RoomB" parent="." instance=ExtResource("3_ssbcq")]
+position = Vector2(2310, 246)
+rotation = -0.00114604
+
+[node name="RoomC" parent="." instance=ExtResource("4_02xb8")]
+position = Vector2(1781, -2147)
+
+[node name="RoomD" parent="." instance=ExtResource("5_p0rc5")]
+position = Vector2(-1.19209e-07, 2048)
+
+[node name="Bridges" parent="." instance=ExtResource("6_xfqg7")]
+tile_map_data = PackedByteArray("AAAGAA8AAAADAAEAAAAGAA4AAAADAAEAAAAGAA0AAAADAAEAAAAGAAwAAAADAAEAAAAGAAsAAAADAAEAAAAGAAoAAAADAAEAAAAGAAkAAAADAAEAAAALAAQAAAAAAAEAAAAMAAQAAAAAAAEAAAANAAQAAAAAAAEAAAAOAAQAAAAAAAEAAAAPAAQAAAAAAAAAAAAPAAUAAAADAAEAAAAPAAYAAAACAAAAAAAQAAYAAAAAAAEAAAARAAYAAAAAAAEAAAAZAAEAAAADAAEAAAAZAAAAAAADAAEAAAAZAP//AAAAAAAAAAAYAP//AAAAAAEAAAAXAP//AAACAAAAAAAXAP7/AAADAAEAAAAXAP3/AAADAAEAAAAXAPz/AAADAAEAAAAXAPv/AAADAAEAAAAXAPr/AAADAAEAAAA=")
