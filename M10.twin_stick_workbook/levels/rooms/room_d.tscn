@@ -44,7 +44,7 @@ position = Vector2(1219.86, 124.398)
 position = Vector2(841.431, 496.965)
 
 [node name="Mob2" parent="." instance=ExtResource("6_dgnc8")]
-position = Vector2(510.922, 940.586)
+position = Vector2(451.614, 1209.52)
 
 [node name="Pickup" parent="." instance=ExtResource("7_6lysl")]
 position = Vector2(192.918, 944.222)

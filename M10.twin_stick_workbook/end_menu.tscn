@@ -6,6 +6,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwhww"]
 
 [node name="EndMenu" type="Control"]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
@@ -54,6 +55,7 @@ horizontal_alignment = 1
 
 [node name="Replay" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.973535, 0.973535, 0.973535, 1)
 theme_override_colors/font_color = Color(0.634084, 0.195477, 0.819162, 1)
@@ -65,6 +67,7 @@ text = "Play Again
 
 [node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
 unique_name_in_owner = true
+process_mode = 3
 layout_mode = 2
 theme_override_colors/font_hover_color = Color(0.973535, 0.973535, 0.973535, 1)
 theme_override_colors/font_color = Color(0.634084, 0.195477, 0.819162, 1)
@@ -73,3 +76,6 @@ theme_override_font_sizes/font_size = 40
 theme_override_styles/focus = SubResource("StyleBoxEmpty_iwhww")
 text = "Quit
 "
+
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Replay" to="." method="_on_replay_pressed"]
+[connection signal="pressed" from="PanelContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]

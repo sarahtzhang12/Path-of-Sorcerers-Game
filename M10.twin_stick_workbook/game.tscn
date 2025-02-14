@@ -44,6 +44,7 @@ tile_map_data = PackedByteArray("AAAFAA4AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAA
 
 [node name="EndMenu" parent="CanvasLayer" instance=ExtResource("10_cfy5k")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Teleporter" parent="." instance=ExtResource("11_h8wle")]
 unique_name_in_owner = true

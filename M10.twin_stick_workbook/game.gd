@@ -10,3 +10,5 @@ func _ready() -> void:
 		if body is Player:
 			_end_menu.open()
 	)
+	
+	

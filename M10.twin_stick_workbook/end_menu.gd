@@ -14,13 +14,14 @@ var _start_time := Time.get_ticks_msec()
 @onready var _color_rect: ColorRect = %ColorRect
 @onready var _panel_container: PanelContainer = %PanelContainer
 
-func _ready() -> void:
-	visible = false
-	_replay_button.pressed.connect(func () -> void:
-		get_tree().paused = false
-		get_tree().reload_current_scene()
-	)
-	_quit_button.pressed.connect(get_tree().quit)
+
+func _on_replay_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+	
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+
 
 func animate_progress(amount := 0.0) -> void:
 	_panel_container.modulate.a = amount
