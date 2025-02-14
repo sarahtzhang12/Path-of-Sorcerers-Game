@@ -1,6 +1,6 @@
 class_name Player extends CharacterBody2D
 
-@export var speed := 460.0
+@export var speed := 2000.0
 @export var drag_factor := 10.0
 @export var max_health := 5
 

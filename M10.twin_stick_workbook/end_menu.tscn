@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://dtjukad4g6axp"]
+
+[ext_resource type="Script" path="res://end_menu.gd" id="1_y4vof"]
+[ext_resource type="FontFile" uid="uid://cmi6sg55wgddn" path="res://common/Montserrat-ExtraBold.ttf" id="2_2t67t"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwhww"]
+
+[node name="EndMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_y4vof")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 1917.0
+offset_bottom = 1082.0
+color = Color(0.0352941, 0.0352941, 0.0352941, 0.407843)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 360.0
+offset_top = 300.0
+offset_right = 1360.0
+offset_bottom = 760.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="PanelContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2t67t")
+theme_override_font_sizes/font_size = 60
+text = "You Won!"
+horizontal_alignment = 1
+
+[node name="Time" type="Label" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_2t67t")
+theme_override_font_sizes/font_size = 42
+text = "Time:12s"
+horizontal_alignment = 1
+
+[node name="Replay" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.973535, 0.973535, 0.973535, 1)
+theme_override_colors/font_color = Color(0.634084, 0.195477, 0.819162, 1)
+theme_override_fonts/font = ExtResource("2_2t67t")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwhww")
+text = "Play Again
+"
+
+[node name="Quit" type="Button" parent="PanelContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_colors/font_hover_color = Color(0.973535, 0.973535, 0.973535, 1)
+theme_override_colors/font_color = Color(0.634084, 0.195477, 0.819162, 1)
+theme_override_fonts/font = ExtResource("2_2t67t")
+theme_override_font_sizes/font_size = 40
+theme_override_styles/focus = SubResource("StyleBoxEmpty_iwhww")
+text = "Quit
+"

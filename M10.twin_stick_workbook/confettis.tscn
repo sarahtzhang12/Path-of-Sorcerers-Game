@@ -1,0 +1,51 @@
+[gd_scene load_steps=9 format=3 uid="uid://b8tty1loqjo2k"]
+
+[ext_resource type="Shader" path="res://common/particles/confettis/confettis.gdshader" id="1_c05eb"]
+[ext_resource type="Texture2D" uid="uid://c33mf20ohybyi" path="res://common/particles/white_circle.png" id="2_b83v6"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_tvpb7"]
+shader = ExtResource("1_c05eb")
+
+[sub_resource type="Gradient" id="Gradient_m4apu"]
+offsets = PackedFloat32Array(0, 0.151639, 0.364754, 0.569672, 0.786885, 0.905738)
+colors = PackedColorArray(1, 0.05, 0.05, 1, 0.96, 0.65088, 0.1536, 1, 0.99, 0.99, 0.3069, 1, 0.058905, 0.99, 0.00989999, 1, 0.0495, 0.253275, 0.99, 1, 0.501961, 0.0235294, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_up67a"]
+gradient = SubResource("Gradient_m4apu")
+
+[sub_resource type="Curve" id="Curve_lfqq1"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1e-05, 0.0115883), 0.0, 0.0, 0, 0, Vector2(0.208609, 0.992651), 0.0, 0.0, 0, 0, Vector2(0.496689, 1), 0.0, 0.0, 0, 0, Vector2(0.990066, 0.0152627), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 6
+
+[sub_resource type="CurveTexture" id="CurveTexture_ism6o"]
+curve = SubResource("Curve_lfqq1")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_je1ck"]
+lifetime_randomness = 0.2
+particle_flag_align_y = true
+particle_flag_disable_z = true
+direction = Vector3(0, -1, 0)
+spread = 35.0
+initial_velocity_min = 250.0
+initial_velocity_max = 600.0
+gravity = Vector3(0, 400, 0)
+damping_min = 1.0
+damping_max = 1.0
+scale_min = 0.3
+scale_max = 0.6
+scale_curve = SubResource("CurveTexture_ism6o")
+color_initial_ramp = SubResource("GradientTexture1D_up67a")
+anim_speed_min = 10.0
+anim_speed_max = 20.0
+anim_offset_max = 1.0
+
+[node name="ConfettisParticles" type="GPUParticles2D"]
+material = SubResource("ShaderMaterial_tvpb7")
+emitting = false
+amount = 48
+process_material = SubResource("ParticleProcessMaterial_je1ck")
+texture = ExtResource("2_b83v6")
+lifetime = 1.5
+one_shot = true
+preprocess = 0.1
+explosiveness = 0.9

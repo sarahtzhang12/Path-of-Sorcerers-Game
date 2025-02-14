@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://2pjfgk015p7r"]
+[gd_scene load_steps=12 format=4 uid="uid://2pjfgk015p7r"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_4jo72"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_7ju0x"]
@@ -9,6 +9,8 @@
 [ext_resource type="PackedScene" uid="uid://c3fl3stluv0gn" path="res://levels/bridges.tscn" id="6_xfqg7"]
 [ext_resource type="PackedScene" uid="uid://dlxjrgals3rg2" path="res://levels/invisible_walls.tscn" id="7_jkxj2"]
 [ext_resource type="PackedScene" uid="uid://cgmhwaifcsshp" path="res://Player.tscn" id="8_3xwmu"]
+[ext_resource type="PackedScene" uid="uid://dtjukad4g6axp" path="res://end_menu.tscn" id="10_cfy5k"]
+[ext_resource type="PackedScene" uid="uid://4ynbpmtas074" path="res://teleporter.tscn" id="11_h8wle"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -37,3 +39,12 @@ tile_map_data = PackedByteArray("AAAGAA8AAAADAAEAAAAGAA4AAAADAAEAAAAGAA0AAAADAAE
 [node name="InvisibleWalls" parent="." instance=ExtResource("7_jkxj2")]
 unique_name_in_owner = true
 tile_map_data = PackedByteArray("AAAFAA4AAAAAAAAAAAAFAA0AAAAAAAAAAAAFAAwAAAAAAAAAAAAFAAsAAAAAAAAAAAAHAAsAAAAAAAAAAAAHAAwAAAAAAAAAAAAHAA0AAAAAAAAAAAAHAA4AAAAAAAAAAAAMAAMAAAAAAAAAAAANAAMAAAAAAAAAAAAOAAMAAAAAAAAAAAAPAAMAAAAAAAAAAAAMAAUAAAAAAAAAAAANAAUAAAAAAAAAAAAQAAQAAAAAAAAAAAAOAAUAAAAAAAAAAAAQAAUAAAAAAAAAAAAPAAcAAAAAAAAAAAAQAAcAAAAAAAAAAAAOAAYAAAAAAAAAAAAYAAAAAAAAAAAAAAAXAAAAAAAAAAAAAAAWAP//AAAAAAAAAAAWAP7/AAAAAAAAAAAWAP3/AAAAAAAAAAAWAPz/AAAAAAAAAAAWAPv/AAAAAAAAAAAYAPv/AAAAAAAAAAAYAPz/AAAAAAAAAAAYAP3/AAAAAAAAAAAYAP7/AAAAAAAAAAAZAP7/AAAAAAAAAAAaAP//AAAAAAAAAAAaAAAAAAAAAAAAAAA=")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="EndMenu" parent="CanvasLayer" instance=ExtResource("10_cfy5k")]
+unique_name_in_owner = true
+
+[node name="Teleporter" parent="." instance=ExtResource("11_h8wle")]
+unique_name_in_owner = true
+position = Vector2(2199, -2066)

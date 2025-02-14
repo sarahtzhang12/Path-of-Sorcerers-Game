@@ -35,6 +35,7 @@ color_ramp = SubResource("GradientTexture1D_1ovd0")
 size = Vector2(120, 115)
 
 [node name="Teleporter" type="Area2D"]
+collision_layer = 0
 
 [node name="Base" type="Sprite2D" parent="."]
 texture = ExtResource("1_vjvgv")
