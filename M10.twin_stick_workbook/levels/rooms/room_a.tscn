@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="8_wma4v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u27s4"]
-size = Vector2(116.998, 184.935)
+size = Vector2(116.998, 118.919)
 
 [node name="RoomA" type="Node2D"]
 y_sort_enabled = true
@@ -46,15 +46,17 @@ position = Vector2(511.553, 390.587)
 [node name="Mob2" parent="." instance=ExtResource("5_y6cs2")]
 position = Vector2(834.134, 755.956)
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(716.873, 110.822)
-texture = ExtResource("6_swi4x")
+collision_layer = 2
+collision_mask = 0
 
-[node name="StaticBody2D" type="StaticBody2D" parent="Sprite2D"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/StaticBody2D"]
-position = Vector2(-0.62384, 14.465)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-0.000610352, 0.999634)
 shape = SubResource("RectangleShape2D_u27s4")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+texture = ExtResource("6_swi4x")
 
 [node name="Chest" parent="." instance=ExtResource("7_eytxv")]
 position = Vector2(844.798, 176.968)

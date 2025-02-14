@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b007h5ahi2hfo"]
+[gd_scene load_steps=18 format=3 uid="uid://b007h5ahi2hfo"]
 
 [ext_resource type="Texture2D" uid="uid://dub7cda3qxho2" path="res://pickups/chest/chest_bottom.png" id="1_1tdmd"]
 [ext_resource type="Script" path="res://chest.gd" id="1_dt4ed"]
@@ -33,6 +33,9 @@ sound_on_pickup = ExtResource("4_oayqr")
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_a5ayw"]
 radius = 89.4707
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_syyaj"]
+size = Vector2(71, 68)
 
 [sub_resource type="Animation" id="Animation_1y2qf"]
 length = 0.001
@@ -97,11 +100,20 @@ _data = {
 
 [node name="Chest" type="Area2D"]
 position = Vector2(626, 344)
+collision_layer = 0
 script = ExtResource("1_dt4ed")
 possible_items = Array[ExtResource("2_a1myc")]([SubResource("Resource_4dy5h"), SubResource("Resource_ire7p"), SubResource("Resource_j3goq")])
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_a5ayw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_syyaj")
 
 [node name="ChestBottom" type="Sprite2D" parent="."]
 position = Vector2(2.5, -6.5)

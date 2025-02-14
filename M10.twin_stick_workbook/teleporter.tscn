@@ -1,0 +1,55 @@
+[gd_scene load_steps=10 format=3 uid="uid://4ynbpmtas074"]
+
+[ext_resource type="Texture2D" uid="uid://cwurq7yvv5xdu" path="res://teleporter/teleporter_base.png" id="1_vjvgv"]
+[ext_resource type="Texture2D" uid="uid://cb5e2w7i8756i" path="res://teleporter/teleporter_beam_green.png" id="2_l7kgg"]
+[ext_resource type="Texture2D" uid="uid://bvq8qshecx2by" path="res://teleporter/teleporter_particle_green.png" id="3_3t5ad"]
+
+[sub_resource type="Gradient" id="Gradient_qm6ft"]
+offsets = PackedFloat32Array(0.102459, 0.913934)
+colors = PackedColorArray(0.969137, 0.969137, 0.969137, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_1ovd0"]
+gradient = SubResource("Gradient_qm6ft")
+
+[sub_resource type="Curve" id="Curve_km624"]
+_data = [Vector2(0.0165563, 0.0299604), 0.0, 0.0, 0, 0, Vector2(0.274834, 1), 0.0, 0.0, 0, 0, Vector2(0.748344, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.0152627), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvsgo"]
+curve = SubResource("Curve_km624")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lqr6m"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(50, 10, 1)
+direction = Vector3(0, -1, 0)
+spread = 0.0
+initial_velocity_min = 55.02
+initial_velocity_max = 86.65
+scale_min = 0.3
+scale_max = 0.5
+scale_curve = SubResource("CurveTexture_rvsgo")
+color_ramp = SubResource("GradientTexture1D_1ovd0")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b7ydt"]
+size = Vector2(120, 115)
+
+[node name="Teleporter" type="Area2D"]
+
+[node name="Base" type="Sprite2D" parent="."]
+texture = ExtResource("1_vjvgv")
+
+[node name="BeamGreen" type="Sprite2D" parent="."]
+texture = ExtResource("2_l7kgg")
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+modulate = Color(1, 1, 1, 0.584314)
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_lqr6m")
+texture = ExtResource("3_3t5ad")
+lifetime = 2.0
+randomness = 0.1
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_b7ydt")
