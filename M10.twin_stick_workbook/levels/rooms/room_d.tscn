@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://diw0kp1e3livt"]
+[gd_scene load_steps=15 format=4 uid="uid://diw0kp1e3livt"]
 
 [ext_resource type="Script" path="res://levels/rooms/room.gd" id="1_2c4qj"]
 [ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="2_0mfii"]
@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://b007h5ahi2hfo" path="res://chest.tscn" id="5_ae63p"]
 [ext_resource type="PackedScene" uid="uid://b8plh6ki5fc3c" path="res://mob.tscn" id="6_dgnc8"]
 [ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="7_6lysl"]
+[ext_resource type="Texture2D" uid="uid://c1cch51fhbxi8" path="res://levels/props/rocks_sword.png" id="8_e0jej"]
+[ext_resource type="Texture2D" uid="uid://culqdxmdoyqo2" path="res://levels/props/grass_rock_1.png" id="9_oj20p"]
+[ext_resource type="Texture2D" uid="uid://dmctowcr0y4a2" path="res://levels/props/grass_rock_3.png" id="10_l0xv4"]
+[ext_resource type="Texture2D" uid="uid://6e1ykwlqveol" path="res://levels/props/gems_mixed_1.png" id="11_45ehm"]
+[ext_resource type="Texture2D" uid="uid://chjn26ibdc2nv" path="res://levels/props/gems_mixed_3.png" id="12_mfj4d"]
+[ext_resource type="Texture2D" uid="uid://db5rmlgvp6f7u" path="res://levels/props/gems_mixed_2.png" id="13_qroqe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gjrw6"]
+size = Vector2(116.007, 126.007)
 
 [node name="RoomD" type="Node2D"]
 y_sort_enabled = true
@@ -54,3 +63,38 @@ position = Vector2(862.526, 1286.99)
 
 [node name="Pickup2" parent="." instance=ExtResource("7_6lysl")]
 position = Vector2(569.786, 186.653)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(224.42, 506.258)
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(-9.02634, 22.9897)
+texture = ExtResource("8_e0jej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-4.02858, 22.9897)
+shape = SubResource("RectangleShape2D_gjrw6")
+
+[node name="GrassRock1" type="Sprite2D" parent="."]
+position = Vector2(517.568, 377.593)
+texture = ExtResource("9_oj20p")
+
+[node name="GrassRock3" type="Sprite2D" parent="."]
+position = Vector2(1284.26, 643.472)
+texture = ExtResource("10_l0xv4")
+
+[node name="GemsMixed1" type="Sprite2D" parent="."]
+position = Vector2(117.569, 1249.14)
+texture = ExtResource("11_45ehm")
+
+[node name="GemsMixed3" type="Sprite2D" parent="."]
+position = Vector2(346.717, 247.398)
+texture = ExtResource("12_mfj4d")
+
+[node name="GemsMixed2" type="Sprite2D" parent="."]
+position = Vector2(738.779, 1065.85)
+texture = ExtResource("13_qroqe")
+
+[node name="GemsMixed4" type="Sprite2D" parent="."]
+position = Vector2(453.114, 773.52)
+texture = ExtResource("13_qroqe")

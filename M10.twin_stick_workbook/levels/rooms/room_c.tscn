@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=4 uid="uid://cq0mmphkbrvmm"]
+[gd_scene load_steps=14 format=4 uid="uid://cq0mmphkbrvmm"]
 
 [ext_resource type="Script" path="res://levels/rooms/room.gd" id="1_3m03d"]
 [ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="1_iyg7j"]
@@ -7,6 +7,14 @@
 [ext_resource type="PackedScene" uid="uid://b007h5ahi2hfo" path="res://chest.tscn" id="5_hthag"]
 [ext_resource type="PackedScene" uid="uid://b8plh6ki5fc3c" path="res://mob.tscn" id="6_xn78l"]
 [ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="7_6c6ux"]
+[ext_resource type="Texture2D" uid="uid://c7h14woyhhois" path="res://levels/props/statue_sword.png" id="8_887fh"]
+[ext_resource type="Texture2D" uid="uid://dmctowcr0y4a2" path="res://levels/props/grass_rock_3.png" id="9_obt3s"]
+[ext_resource type="Texture2D" uid="uid://bm8kc3p51p5yq" path="res://levels/props/grass_rock_4.png" id="10_1ajpb"]
+[ext_resource type="Texture2D" uid="uid://b1mhee1wq4skl" path="res://levels/props/gems_silver_1.png" id="11_5hb5g"]
+[ext_resource type="Texture2D" uid="uid://d38etsf5fqj5r" path="res://levels/props/gems_red_4.png" id="12_0edj0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hhub8"]
+size = Vector2(121, 221)
 
 [node name="RoomC" type="Node2D"]
 y_sort_enabled = true
@@ -49,3 +57,29 @@ position = Vector2(510, 1076)
 
 [node name="Pickup3" parent="." instance=ExtResource("7_6c6ux")]
 position = Vector2(1326, 1228)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(941, 158)
+texture = ExtResource("8_887fh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(944, 156)
+shape = SubResource("RectangleShape2D_hhub8")
+
+[node name="GrassRock3" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(354, 689)
+texture = ExtResource("9_obt3s")
+
+[node name="GrassRock4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(1198, 973)
+texture = ExtResource("10_1ajpb")
+
+[node name="GemsSilver1" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(882, 559)
+texture = ExtResource("11_5hb5g")
+
+[node name="GemsRed4" type="Sprite2D" parent="StaticBody2D"]
+position = Vector2(239, 338)
+texture = ExtResource("12_0edj0")

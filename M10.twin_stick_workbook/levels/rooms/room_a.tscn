@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cu2rb5dl4ljte"]
+[gd_scene load_steps=14 format=4 uid="uid://cu2rb5dl4ljte"]
 
 [ext_resource type="Script" path="res://levels/rooms/room.gd" id="1_8d3jl"]
 [ext_resource type="TileSet" uid="uid://bq65uwha45com" path="res://levels/rooms/tilesets/floating_dungeon_tileset.tres" id="1_hbbvy"]
@@ -8,6 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://dqsx4s3vbcjiv" path="res://levels/props/statue_gems.png" id="6_swi4x"]
 [ext_resource type="PackedScene" uid="uid://b007h5ahi2hfo" path="res://chest.tscn" id="7_eytxv"]
 [ext_resource type="PackedScene" uid="uid://dunbcc7cjhipx" path="res://pickup.tscn" id="8_wma4v"]
+[ext_resource type="Texture2D" uid="uid://6e1ykwlqveol" path="res://levels/props/gems_mixed_1.png" id="9_eg4r4"]
+[ext_resource type="Texture2D" uid="uid://culqdxmdoyqo2" path="res://levels/props/grass_rock_1.png" id="10_3kttb"]
+[ext_resource type="Texture2D" uid="uid://7g1m04owvvmo" path="res://levels/props/gems_yellow_1.png" id="11_q1v3e"]
+[ext_resource type="Texture2D" uid="uid://v8qgxiwgoo6o" path="res://levels/props/gems_silver_4.png" id="12_nv8ll"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u27s4"]
 size = Vector2(116.998, 118.919)
@@ -69,3 +73,19 @@ position = Vector2(389.021, 854.446)
 
 [node name="Pickup3" parent="." instance=ExtResource("8_wma4v")]
 position = Vector2(295.696, 265.339)
+
+[node name="GemsMixed1" type="Sprite2D" parent="."]
+position = Vector2(928.801, 1047.07)
+texture = ExtResource("9_eg4r4")
+
+[node name="GrassRock1" type="Sprite2D" parent="."]
+position = Vector2(182.168, 726.209)
+texture = ExtResource("10_3kttb")
+
+[node name="GemsYellow1" type="Sprite2D" parent="."]
+position = Vector2(1066.56, 385.223)
+texture = ExtResource("11_q1v3e")
+
+[node name="GemsSilver4" type="Sprite2D" parent="."]
+position = Vector2(353.451, 479.405)
+texture = ExtResource("12_nv8ll")
