@@ -59,7 +59,7 @@ shape = SubResource("RectangleShape2D_u27s4")
 texture = ExtResource("6_swi4x")
 
 [node name="Chest" parent="." instance=ExtResource("7_eytxv")]
-position = Vector2(844.798, 176.968)
+position = Vector2(845.682, 277.969)
 
 [node name="Pickup" parent="." instance=ExtResource("8_wma4v")]
 position = Vector2(1117.28, 633.281)

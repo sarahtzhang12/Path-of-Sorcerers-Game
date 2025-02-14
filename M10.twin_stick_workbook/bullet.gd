@@ -5,6 +5,8 @@ var max_range := 1000.0
 
 @export var damage := 1
 
+@export var hit_sound: AudioStreamPlayer = null
+
 var _traveled_distance = 0.0
 
 func _physics_process(delta: float) -> void:
@@ -17,7 +19,14 @@ func _physics_process(delta: float) -> void:
 		_destroy() 
 
 func _destroy():
-	queue_free()
+	if hit_sound != null:
+		hit_sound.play()
+		set_deferred("monitoring", false)
+		set_physics_process(false)
+		hide()
+		hit_sound.finished.connect(queue_free)
+	else:
+		queue_free()
 
 func _ready() -> void:
 	body_entered.connect(func (body: Node) -> void:

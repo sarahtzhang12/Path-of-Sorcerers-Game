@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://2pjfgk015p7r"]
+[gd_scene load_steps=14 format=4 uid="uid://2pjfgk015p7r"]
 
 [ext_resource type="Script" path="res://game.gd" id="1_4jo72"]
 [ext_resource type="PackedScene" uid="uid://wdey00p3syru" path="res://levels/background/background_blue_sky.tscn" id="1_7ju0x"]
@@ -11,6 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://cgmhwaifcsshp" path="res://Player.tscn" id="8_3xwmu"]
 [ext_resource type="PackedScene" uid="uid://dtjukad4g6axp" path="res://end_menu.tscn" id="10_cfy5k"]
 [ext_resource type="PackedScene" uid="uid://4ynbpmtas074" path="res://teleporter.tscn" id="11_h8wle"]
+[ext_resource type="AudioStream" uid="uid://cgkhr5s5txcxx" path="res://common/music/EZDNB2 (CC-BY Of Far Different Nature).ogg" id="12_bc1ng"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_g60k1"]
+playback_mode = 1
+streams_count = 1
+stream_0/stream = ExtResource("12_bc1ng")
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -49,3 +55,7 @@ visible = false
 [node name="Teleporter" parent="." instance=ExtResource("11_h8wle")]
 unique_name_in_owner = true
 position = Vector2(2199, -2066)
+
+[node name="GameSound" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_g60k1")
+volume_db = -10.989

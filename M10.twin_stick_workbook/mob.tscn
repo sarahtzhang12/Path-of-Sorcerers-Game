@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://b8plh6ki5fc3c"]
+[gd_scene load_steps=11 format=3 uid="uid://b8plh6ki5fc3c"]
 
 [ext_resource type="Script" path="res://mob.gd" id="1_umth4"]
 [ext_resource type="Texture2D" uid="uid://nohjoiah3jgr" path="res://mobs/sword_inactive.png" id="2_dbhg5"]
 [ext_resource type="PackedScene" path="res://common/shadow.tscn" id="3_ee52p"]
+[ext_resource type="AudioStream" uid="uid://dfc5tcrthtntk" path="res://mobs/hurt.wav" id="4_fxnk4"]
+[ext_resource type="AudioStream" uid="uid://cte8ddxd7o4de" path="res://mobs/kill.wav" id="5_dlm2h"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0tkri"]
 radius = 19.0087
@@ -14,6 +16,16 @@ radius = 485.103
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yeje8"]
 radius = 31.0
 height = 142.0
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_xou0b"]
+playback_mode = 1
+streams_count = 1
+stream_0/stream = ExtResource("4_fxnk4")
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_diyr5"]
+playback_mode = 1
+streams_count = 1
+stream_0/stream = ExtResource("5_dlm2h")
 
 [node name="Mob" type="CharacterBody2D"]
 motion_mode = 1
@@ -43,3 +55,13 @@ unique_name_in_owner = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBox"]
 rotation = -1.5742
 shape = SubResource("CapsuleShape2D_yeje8")
+
+[node name="HurtSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_xou0b")
+volume_db = 4.054
+
+[node name="DieSound" type="AudioStreamPlayer" parent="."]
+unique_name_in_owner = true
+stream = SubResource("AudioStreamRandomizer_diyr5")
+volume_db = 4.317
